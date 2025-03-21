@@ -8,58 +8,82 @@ import Button from '../shared/Button';
 
 const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Företagsprofilering ABC Bygg',
-    description: 'Komplett grafisk profil med logotyp, trycksaker och profilkläder.',
-    category: 'Grafisk Design',
+    title: 'Företagsprofilering',
+    description: 'Komplett visuell identitet och profilmaterial för byggföretag',
+    category: 'Profilering',
     image: '/portfolio/company-branding.jpg',
     client: 'ABC Bygg AB',
-    results: 'Ökad igenkänning och professionellt intryck',
+    results: [
+      'Ökad igenkänning och professionellt intryck',
+      'Enhetlig visuell identitet',
+      'Stärkt varumärkesposition'
+    ],
     link: '/case/abc-bygg'
   },
   {
-    title: 'Produktkatalog XYZ Mode',
-    description: 'Modern produktkatalog med över 100 sidor av högkvalitativt tryck.',
-    category: 'Trycksaker',
+    title: 'Produktkatalog',
+    description: 'Design och tryck av omfattande produktkatalog',
+    category: 'Tryck',
     image: '/portfolio/product-catalog.jpg',
-    client: 'XYZ Mode AB',
-    results: '25% ökning i försäljning efter lansering',
-    link: '/case/xyz-mode'
+    client: 'XYZ Möbler',
+    results: [
+      'Ökad försäljning genom tydlig produktpresentation',
+      'Förbättrad kundupplevelse',
+      'Effektiv produktkommunikation'
+    ],
+    link: '/case/xyz-mobler'
   },
   {
-    title: 'Mässkoncept Tech Expo',
-    description: 'Komplett mässpaket med montermaterial och give-aways.',
-    category: 'Event',
-    image: '/portfolio/expo-concept.jpg',
-    client: 'Tech Solutions AB',
-    results: '500+ nya leads från mässan',
+    title: 'Mässmaterial',
+    description: 'Storformatsprint för mässmonter och event',
+    category: 'Storformat',
+    image: '/portfolio/exhibition-materials.jpg',
+    client: 'Tech Expo',
+    results: [
+      'Uppmärksammat mässdeltagande',
+      'Professionell exponering',
+      'Ökad leads-generering'
+    ],
     link: '/case/tech-expo'
   },
   {
-    title: 'Restaurangmeny Pasta Palace',
-    description: 'Exklusiv menydesign med specialtryck och unik finish.',
-    category: 'Trycksaker',
-    image: '/portfolio/restaurant-menu.jpg',
-    client: 'Pasta Palace',
-    results: 'Förbättrad kundupplevelse och merförsäljning',
-    link: '/case/pasta-palace'
+    title: 'Digital Design',
+    description: 'Modern webbdesign och digital närvaro',
+    category: 'Design',
+    image: '/portfolio/digital-design.jpg',
+    client: 'Digital Solutions',
+    results: [
+      'Förbättrad användarupplevelse',
+      'Ökad digital konvertering',
+      'Modern digital profil'
+    ],
+    link: '/case/digital-solutions'
   },
   {
-    title: 'Profilkläder Städ & Service',
-    description: 'Profilerade arbetskläder för hela personalstyrkan.',
-    category: 'Profilprodukter',
-    image: '/portfolio/workwear.jpg',
-    client: 'Städ & Service AB',
-    results: 'Stärkt teamkänsla och professionellt intryck',
-    link: '/case/stad-service'
+    title: 'Förpackningsdesign',
+    description: 'Innovativ förpackningsdesign för produktserie',
+    category: 'Design',
+    image: '/portfolio/packaging.jpg',
+    client: 'Eco Products',
+    results: [
+      'Ökad hyllsynlighet',
+      'Förbättrad produktidentitet',
+      'Miljövänlig förpackningslösning'
+    ],
+    link: '/case/eco-products'
   },
   {
-    title: 'Kampanjmaterial Sport Store',
-    description: 'Säsongsbaserat kampanjmaterial för butik och online.',
-    category: 'Marknadsföring',
-    image: '/portfolio/campaign-material.jpg',
-    client: 'Sport Store AB',
-    results: '40% ökad försäljning under kampanjperioden',
-    link: '/case/sport-store'
+    title: 'Eventmaterial',
+    description: 'Komplett eventpaket med trycksaker och dekormaterial',
+    category: 'Tryck',
+    image: '/portfolio/event-materials.jpg',
+    client: 'Event Pro',
+    results: [
+      'Professionell eventexponering',
+      'Enhetlig visuell kommunikation',
+      'Ökat deltagarengagemang'
+    ],
+    link: '/case/event-pro'
   }
 ];
 
@@ -164,7 +188,7 @@ export default function Portfolio() {
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="text-center p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       <p className="text-white text-lg font-semibold mb-2">{item.client}</p>
-                      <p className="text-white/80 mb-4">{item.results}</p>
+                      <p className="text-white/80 mb-4">{item.results.join(', ')}</p>
                       <Button href={item.link} size="small" variant="outline" className="!text-white border-white hover:bg-white hover:!text-gray-900">
                         Se Case
                       </Button>
