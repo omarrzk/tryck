@@ -6,10 +6,14 @@ import { ContactFormData, ContactInfo } from '@/app/types';
 import Container from '../shared/Container';
 import Button from '../shared/Button';
 
-const contactInfo: ContactInfo = {
+const contactInfo = {
   email: 'info@tryckdesign.se',
   phone: '08-123 45 67',
-  address: 'Tryckvägen 1, 123 45 Stockholm',
+  address: {
+    street: 'Tryckvägen 1',
+    city: 'Stockholm',
+    zip: '123 45'
+  },
   hours: 'Mån-Fre: 08:00-17:00'
 };
 
@@ -137,7 +141,7 @@ export default function Contact() {
                 </svg>
                 <h3 className="text-xl font-bold text-gray-900">Besöksadress</h3>
               </div>
-              <p className="text-gray-600">{contactInfo.address}</p>
+              <p className="text-gray-600">{contactInfo.address.street}, {contactInfo.address.zip} {contactInfo.address.city}</p>
               <p className="text-gray-600 mt-2">{contactInfo.hours}</p>
             </motion.div>
           </motion.div>
