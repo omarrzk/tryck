@@ -48,7 +48,9 @@ export default function Contact() {
     email: '',
     phone: '',
     company: '',
-    message: ''
+    message: '',
+    service: '',
+    budget: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -68,7 +70,9 @@ export default function Contact() {
         email: '',
         phone: '',
         company: '',
-        message: ''
+        message: '',
+        service: '',
+        budget: ''
       });
     } catch (error) {
       setSubmitStatus('error');
@@ -77,7 +81,9 @@ export default function Contact() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -219,6 +225,44 @@ export default function Contact() {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                     placeholder="Företagsnamn"
                   />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                    Tjänst
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                  >
+                    <option value="">Välj tjänst</option>
+                    <option value="design">Design</option>
+                    <option value="tryck">Tryck</option>
+                    <option value="profilering">Profilering</option>
+                    <option value="storformat">Storformat</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                    Budget
+                  </label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                  >
+                    <option value="">Välj budget</option>
+                    <option value="small">Under 10 000 kr</option>
+                    <option value="medium">10 000 - 50 000 kr</option>
+                    <option value="large">Över 50 000 kr</option>
+                  </select>
                 </div>
               </div>
 
