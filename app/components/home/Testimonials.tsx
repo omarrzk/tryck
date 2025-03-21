@@ -72,27 +72,27 @@ function StarRating({ rating }: { rating: number }) {
 
 export default function Testimonials() {
   return (
-    <section className="py-20">
-      <Container>
-        <div className="text-center mb-16">
+    <section id="recensioner" className="py-12 sm:py-20 bg-gray-50">
+      <Container className="px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.h2
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
           >
-            Vad våra kunder säger
+            Vad Våra Kunder Säger
           </motion.h2>
           <motion.p
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4 sm:px-0"
           >
-            Vi är stolta över att ha hjälpt hundratals företag att växa genom 
-            kreativa tryck- och designlösningar.
+            Se vad andra företag tycker om våra tjänster och hur vi har 
+            hjälpt dem att utveckla sina varumärken.
           </motion.p>
         </div>
 
@@ -101,54 +101,35 @@ export default function Testimonials() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.author}
               variants={fadeInUp}
-              className="bg-white p-8 rounded-xl shadow-lg"
+              className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
             >
-              <StarRating rating={testimonial.rating} />
-              <blockquote className="mt-6 text-gray-600">
+              <StarRating rating={testimonial.rating} className="text-yellow-400" />
+              <blockquote className="mt-4 sm:mt-6 text-sm sm:text-base text-gray-600 leading-relaxed">
                 "{testimonial.text}"
               </blockquote>
-              <div className="mt-6 flex items-center">
+              <div className="mt-4 sm:mt-6 flex items-center">
                 <div className="flex-shrink-0">
                   <img
                     src={testimonial.image}
                     alt={testimonial.author}
-                    className="h-12 w-12 rounded-full object-cover"
+                    className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover"
                   />
                 </div>
-                <div className="ml-4">
-                  <div className="font-medium text-gray-900">{testimonial.author}</div>
-                  <div className="text-gray-500">
+                <div className="ml-3 sm:ml-4">
+                  <div className="text-sm sm:text-base font-medium text-gray-900">{testimonial.author}</div>
+                  <div className="text-xs sm:text-sm text-gray-500">
                     {testimonial.role}, {testimonial.company}
                   </div>
                 </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="mt-16 text-center"
-        >
-          <div className="flex flex-col items-center justify-center space-y-4">
-            <div className="flex items-center">
-              <span className="text-4xl font-bold text-primary">4.9</span>
-              <div className="ml-2">
-                <StarRating rating={5} />
-                <p className="text-sm text-gray-500">Genomsnittligt betyg</p>
-              </div>
-            </div>
-            <p className="text-gray-600">Baserat på över 100 kundrecensioner</p>
-          </div>
         </motion.div>
       </Container>
     </section>
