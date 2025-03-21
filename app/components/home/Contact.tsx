@@ -6,7 +6,7 @@ import { ContactFormData, ContactInfo } from '@/app/types';
 import Container from '../shared/Container';
 import Button from '../shared/Button';
 
-const contactInfo = {
+const contactInfo: ContactInfo = {
   email: 'info@tryckdesign.se',
   phone: '08-123 45 67',
   address: {
@@ -14,7 +14,12 @@ const contactInfo = {
     city: 'Stockholm',
     zip: '123 45'
   },
-  hours: 'Mån-Fre: 08:00-17:00'
+  hours: [
+    {
+      days: 'Måndag-Fredag',
+      time: '08:00-17:00'
+    }
+  ]
 };
 
 const fadeInUp = {
@@ -142,7 +147,7 @@ export default function Contact() {
                 <h3 className="text-xl font-bold text-gray-900">Besöksadress</h3>
               </div>
               <p className="text-gray-600">{contactInfo.address.street}, {contactInfo.address.zip} {contactInfo.address.city}</p>
-              <p className="text-gray-600 mt-2">{contactInfo.hours}</p>
+              <p className="text-gray-600 mt-2">{contactInfo.hours[0].days}: {contactInfo.hours[0].time}</p>
             </motion.div>
           </motion.div>
 
