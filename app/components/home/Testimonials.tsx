@@ -51,9 +51,9 @@ const stagger = {
   }
 };
 
-function StarRating({ rating }: { rating: number }) {
+function StarRating({ rating, className }: { rating: number; className?: string }) {
   return (
-    <div className="flex gap-1">
+    <div className={`flex gap-1 ${className || ''}`}>
       {[...Array(5)].map((_, index) => (
         <svg
           key={index}
