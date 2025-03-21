@@ -30,7 +30,7 @@ export default function Hero() {
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
       
-      <Container>
+      <Container className="px-4 sm:px-6">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -40,7 +40,7 @@ export default function Hero() {
           {/* Main Heading */}
           <motion.h1 
             variants={fadeIn}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight"
           >
             Professionellt Tryck & Design för{' '}
             <span className="text-yellow-400">Ditt Varumärke</span>
@@ -49,16 +49,16 @@ export default function Hero() {
           {/* Subheading */}
           <motion.p 
             variants={fadeIn}
-            className="text-xl md:text-2xl text-gray-100 mb-8"
+            className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-6 sm:mb-8 px-4 sm:px-0"
           >
             Vi hjälper företag att sticka ut med högkvalitativt tryck, 
             profilering och design sedan 2010
           </motion.p>
 
           {/* USP Points */}
-          <motion.div 
+          <motion.div
             variants={fadeIn}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-8 sm:mb-10 px-4 sm:px-0"
           >
             {[
               'Snabb leverans 3-5 dagar',
@@ -68,10 +68,10 @@ export default function Hero() {
             ].map((point, index) => (
               <div 
                 key={index}
-                className="flex items-center justify-center text-sm md:text-base text-white"
+                className="flex items-center justify-center text-sm sm:text-base text-white bg-black/20 backdrop-blur-sm rounded-lg py-2 px-4"
               >
                 <svg 
-                  className="w-5 h-5 text-yellow-400 mr-2" 
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 mr-2 flex-shrink-0" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
@@ -83,7 +83,7 @@ export default function Hero() {
                     d="M5 13l4 4L19 7" 
                   />
                 </svg>
-                {point}
+                <span className="text-left">{point}</span>
               </div>
             ))}
           </motion.div>
@@ -91,12 +91,12 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div 
             variants={fadeIn}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
           >
             <Button 
               href="/offert"
               size="large"
-              className="min-w-[200px]"
+              className="w-full sm:w-auto sm:min-w-[200px] text-sm sm:text-base"
             >
               Begär Offert
             </Button>
@@ -104,7 +104,7 @@ export default function Hero() {
               href="#tjanster"
               variant="outline"
               size="large"
-              className="min-w-[200px] border-white text-white hover:bg-white hover:text-primary"
+              className="w-full sm:w-auto sm:min-w-[200px] border-white text-white hover:bg-white hover:text-primary text-sm sm:text-base"
             >
               Se Våra Tjänster
             </Button>
@@ -113,7 +113,7 @@ export default function Hero() {
       </Container>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-white/10 to-transparent" />
     </div>
   );
 } 

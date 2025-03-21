@@ -77,15 +77,15 @@ const fadeInUp = {
 
 export default function Services() {
   return (
-    <section id="tjanster" className="py-20 bg-gray-50">
-      <Container>
-        <div className="text-center mb-16">
+    <section id="tjanster" className="py-12 sm:py-20 bg-gray-50">
+      <Container className="px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.h2
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
           >
             Våra Tjänster
           </motion.h2>
@@ -94,14 +94,14 @@ export default function Services() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4 sm:px-0"
           >
             Vi erbjuder ett komplett utbud av tryck- och designtjänster för att 
             hjälpa ditt företag att växa och synas.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -122,35 +122,40 @@ export default function Services() {
               }}
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
-              <div className="p-8">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
+              <div className="p-6 sm:p-8">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-4 sm:mb-6">
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
                   {service.description}
                 </p>
-                <div className="mb-6">
-                  <p className="text-2xl font-bold text-primary mb-2">
-                    {service.price}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-gray-600">
-                        <svg className="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-2 sm:space-y-3 mb-6">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-start">
+                      <svg
+                        className="w-5 h-5 sm:w-6 sm:h-6 text-primary mr-2 sm:mr-3 mt-0.5 flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="text-sm sm:text-base text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
                 <Button
                   href={service.link}
                   variant="outline"
-                  className="w-full"
+                  className="w-full sm:w-auto text-sm sm:text-base"
                 >
                   Läs mer
                 </Button>
@@ -164,10 +169,10 @@ export default function Services() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="text-center mt-16"
+          className="text-center mt-10 sm:mt-16"
         >
-          <Button href="/offert" size="large">
-            Begär offert nu
+          <Button href="/tjanster" variant="outline" size="large" className="w-full sm:w-auto text-sm sm:text-base">
+            Se alla tjänster
           </Button>
         </motion.div>
       </Container>

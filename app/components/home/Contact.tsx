@@ -89,15 +89,15 @@ export default function Contact() {
   };
 
   return (
-    <section id="kontakt" className="py-20 bg-gray-50">
-      <Container>
-        <div className="text-center mb-16">
+    <section id="kontakt" className="py-12 sm:py-20 bg-gray-50">
+      <Container className="px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-16">
           <motion.h2
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
+            className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4"
           >
             Kontakta Oss
           </motion.h2>
@@ -106,54 +106,58 @@ export default function Contact() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto"
           >
             Har du frågor eller vill diskutera ett projekt? Vi finns här för att hjälpa dig!
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={stagger}
-            className="space-y-8"
+            className="space-y-4 sm:space-y-8 order-2 lg:order-1"
           >
-            <motion.div variants={fadeInUp} className="bg-white p-8 rounded-xl shadow-lg">
+            <motion.div variants={fadeInUp} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
               <div className="flex items-center mb-4">
-                <svg className="w-6 h-6 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <h3 className="text-xl font-bold text-gray-900">E-post</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">E-post</h3>
               </div>
-              <a href={`mailto:${contactInfo.email}`} className="text-gray-600 hover:text-primary">
+              <a href={`mailto:${contactInfo.email}`} className="text-gray-600 hover:text-primary text-sm sm:text-base">
                 {contactInfo.email}
               </a>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="bg-white p-8 rounded-xl shadow-lg">
+            <motion.div variants={fadeInUp} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
               <div className="flex items-center mb-4">
-                <svg className="w-6 h-6 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <h3 className="text-xl font-bold text-gray-900">Telefon</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">Telefon</h3>
               </div>
-              <a href={`tel:${contactInfo.phone.replace(/[^0-9+]/g, '')}`} className="text-gray-600 hover:text-primary">
+              <a href={`tel:${contactInfo.phone.replace(/[^0-9+]/g, '')}`} className="text-gray-600 hover:text-primary text-sm sm:text-base">
                 {contactInfo.phone}
               </a>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="bg-white p-8 rounded-xl shadow-lg">
+            <motion.div variants={fadeInUp} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
               <div className="flex items-center mb-4">
-                <svg className="w-6 h-6 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <h3 className="text-xl font-bold text-gray-900">Besöksadress</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">Besöksadress</h3>
               </div>
-              <p className="text-gray-600">{contactInfo.address.street}, {contactInfo.address.zip} {contactInfo.address.city}</p>
-              <p className="text-gray-600 mt-2">{contactInfo.hours[0].days}: {contactInfo.hours[0].time}</p>
+              <p className="text-gray-600 text-sm sm:text-base">
+                {contactInfo.address.street}, {contactInfo.address.zip} {contactInfo.address.city}
+              </p>
+              <p className="text-gray-600 mt-2 text-sm sm:text-base">
+                {contactInfo.hours[0].days}: {contactInfo.hours[0].time}
+              </p>
             </motion.div>
           </motion.div>
 
@@ -162,11 +166,12 @@ export default function Contact() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
+            className="order-1 lg:order-2"
           >
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <form onSubmit={handleSubmit} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     Namn *
                   </label>
                   <input
@@ -176,12 +181,12 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                     placeholder="Ditt namn"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     E-post *
                   </label>
                   <input
@@ -191,15 +196,15 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                     placeholder="din.epost@exempel.se"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     Telefon
                   </label>
                   <input
@@ -208,12 +213,12 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                     placeholder="070-123 45 67"
                   />
                 </div>
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     Företag
                   </label>
                   <input
@@ -222,15 +227,15 @@ export default function Contact() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                     placeholder="Företagsnamn"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     Tjänst
                   </label>
                   <select
@@ -238,7 +243,7 @@ export default function Contact() {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                   >
                     <option value="">Välj tjänst</option>
                     <option value="design">Design</option>
@@ -248,7 +253,7 @@ export default function Contact() {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                     Budget
                   </label>
                   <select
@@ -256,7 +261,7 @@ export default function Contact() {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                   >
                     <option value="">Välj budget</option>
                     <option value="small">Under 10 000 kr</option>
@@ -267,7 +272,7 @@ export default function Contact() {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
                   Meddelande *
                 </label>
                 <textarea
@@ -277,17 +282,17 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
                   placeholder="Beskriv ditt ärende..."
                 />
               </div>
 
-              <div className="flex items-center justify-between">
-                <p className="text-sm text-gray-500">* Obligatoriska fält</p>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <p className="text-xs sm:text-sm text-gray-500 order-2 sm:order-1">* Obligatoriska fält</p>
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`relative ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                  className={`w-full sm:w-auto order-1 sm:order-2 ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
                 >
                   {isSubmitting ? 'Skickar...' : 'Skicka meddelande'}
                 </Button>
@@ -296,11 +301,6 @@ export default function Contact() {
               {submitStatus === 'success' && (
                 <p className="mt-4 text-green-600 text-sm">
                   Tack för ditt meddelande! Vi återkommer så snart som möjligt.
-                </p>
-              )}
-              {submitStatus === 'error' && (
-                <p className="mt-4 text-red-600 text-sm">
-                  Ett fel uppstod. Vänligen försök igen eller kontakta oss via telefon.
                 </p>
               )}
             </form>
